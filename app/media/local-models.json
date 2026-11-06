@@ -1,0 +1,178 @@
+[
+ {
+  "id": "sd-turbo",
+  "name": "SD-Turbo (Stability, 1\u20134 steps)",
+  "kind": "image",
+  "phone": "good",
+  "ram_gb": 3,
+  "steps": 4,
+  "cfg": 1,
+  "sampler": "euler_a",
+  "note": "Fastest real local option on a phone. 512\u00d7512 in about 20\u201360 s on a recent Snapdragon/Dimensity.",
+  "files": [
+   {
+    "role": "model",
+    "file": "sd_turbo-f16-q8_0.gguf",
+    "url": "https://huggingface.co/Green-Sky/SD-Turbo-GGUF/resolve/main/sd_turbo-f16-q8_0.gguf",
+    "bytes": 2023745376
+   }
+  ],
+  "size_gb": 2.02,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ },
+ {
+  "id": "sd15-q4",
+  "name": "Stable Diffusion 1.5 (Q4_0)",
+  "kind": "image",
+  "phone": "ok",
+  "ram_gb": 3,
+  "steps": 20,
+  "cfg": 7,
+  "note": "Classic open model, huge community. 1\u20133 min per 512\u00d7512 on phone.",
+  "files": [
+   {
+    "role": "model",
+    "file": "stable-diffusion-v1-5-pruned-emaonly-Q4_0.gguf",
+    "url": "https://huggingface.co/second-state/stable-diffusion-v1-5-GGUF/resolve/main/stable-diffusion-v1-5-pruned-emaonly-Q4_0.gguf",
+    "bytes": 1566768416
+   }
+  ],
+  "size_gb": 1.57,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ },
+ {
+  "id": "sd21-turbo-q4",
+  "name": "SD 2.1 Turbo (Q4_0)",
+  "kind": "image",
+  "phone": "ok",
+  "ram_gb": 4,
+  "steps": 4,
+  "cfg": 1,
+  "sampler": "euler_a",
+  "note": "1\u20134 steps, a bit sharper than SD-Turbo.",
+  "files": [
+   {
+    "role": "model",
+    "file": "stable-diffusion-v2-1-turbo-Q4_0.gguf",
+    "url": "https://huggingface.co/gpustack/stable-diffusion-v2-1-turbo-GGUF/resolve/main/stable-diffusion-v2-1-turbo-Q4_0.gguf",
+    "bytes": 2185459424
+   }
+  ],
+  "size_gb": 2.19,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ },
+ {
+  "id": "z-image-turbo-q3",
+  "name": "Z-Image Turbo (Alibaba Tongyi, Q3_K)",
+  "kind": "image",
+  "phone": "heavy",
+  "ram_gb": 10,
+  "steps": 8,
+  "cfg": 1,
+  "note": "Best quality open model here, 8 steps. Needs 12 GB+ RAM phone; several minutes per image.",
+  "files": [
+   {
+    "role": "diffusion",
+    "file": "z_image_turbo-Q3_K.gguf",
+    "url": "https://huggingface.co/leejet/Z-Image-Turbo-GGUF/resolve/main/z_image_turbo-Q3_K.gguf",
+    "bytes": 3143559104
+   },
+   {
+    "role": "llm",
+    "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "url": "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "bytes": 2497281120
+   },
+   {
+    "role": "vae",
+    "file": "ae.safetensors",
+    "url": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/ae.safetensors",
+    "bytes": 335304388
+   }
+  ],
+  "extra": [
+   "--diffusion-fa"
+  ],
+  "size_gb": 5.98,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ },
+ {
+  "id": "flux-schnell-q4",
+  "name": "FLUX.1-schnell (Black Forest Labs, Q4_0)",
+  "kind": "image",
+  "phone": "heavy",
+  "ram_gb": 14,
+  "steps": 4,
+  "cfg": 1,
+  "note": "Top open model (Apache-2.0). ~10 GB download, needs 16 GB RAM; 5\u201315 min per image on phone. Better on the PC.",
+  "files": [
+   {
+    "role": "diffusion",
+    "file": "flux1-schnell-Q4_0.gguf",
+    "url": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/flux1-schnell-Q4_0.gguf",
+    "bytes": 6688845536
+   },
+   {
+    "role": "vae",
+    "file": "ae.safetensors",
+    "url": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/ae.safetensors",
+    "bytes": 335304388
+   },
+   {
+    "role": "clip_l",
+    "file": "clip_l-Q8_0.gguf",
+    "url": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/clip_l-Q8_0.gguf",
+    "bytes": 130769600
+   },
+   {
+    "role": "t5xxl",
+    "file": "t5xxl-Q2_K.gguf",
+    "url": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/t5xxl-Q2_K.gguf",
+    "bytes": 1605835296
+   }
+  ],
+  "extra": [
+   "--diffusion-fa"
+  ],
+  "size_gb": 8.76,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ },
+ {
+  "id": "wan21-1.3b-q4",
+  "name": "Wan 2.1 T2V 1.3B (Alibaba, Q4_0) \u2014 video",
+  "kind": "video",
+  "phone": "very slow",
+  "ram_gb": 8,
+  "steps": 20,
+  "cfg": 6,
+  "frames": 17,
+  "note": "Real open-source text-to-video. 17 frames at 480\u00d7320 takes 20\u201360+ min on a phone and needs 8 GB+ RAM. Experimental.",
+  "files": [
+   {
+    "role": "diffusion",
+    "file": "Wan2.1-T2V-1.3B-Q4_0.gguf",
+    "url": "https://huggingface.co/samuelchristlie/Wan2.1-T2V-1.3B-GGUF/resolve/main/Wan2.1-T2V-1.3B-Q4_0.gguf",
+    "bytes": 865581280
+   },
+   {
+    "role": "t5xxl",
+    "file": "umt5-xxl-encoder-Q3_K_S.gguf",
+    "url": "https://huggingface.co/city96/umt5-xxl-encoder-gguf/resolve/main/umt5-xxl-encoder-Q3_K_S.gguf",
+    "bytes": 2858489696
+   },
+   {
+    "role": "vae",
+    "file": "wan_2.1_vae.safetensors",
+    "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+    "bytes": 253815318
+   }
+  ],
+  "extra": [
+   "--diffusion-fa",
+   "--flow-shift",
+   "3.0"
+  ],
+  "size_gb": 3.98,
+  "source": "Hugging Face (only public host with these GGUF conversions)"
+ }
+]

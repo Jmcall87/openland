@@ -1,0 +1,1 @@
+var e=`/openland/app/assets/wllama-DrYkKwf9.wasm`;export{e as default};

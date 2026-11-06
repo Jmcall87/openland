@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Finishing sign-in · OpenLand</title>
+<style>body{margin:0;min-height:100dvh;display:grid;place-items:center;background:#faf9f5;color:#3d3929;font:16px -apple-system,system-ui,sans-serif;text-align:center;padding:24px}
+.b{display:inline-block;margin-top:14px;padding:14px 22px;border-radius:14px;background:#c6613f;color:#fff;text-decoration:none;font-weight:600}.m{color:#83827d;font-size:14px}</style></head>
+<body><div><svg width="40" height="40" viewBox="0 0 64 64"><path fill="#c6613f" d="M32 10l4.6 17.4L54 32l-17.4 4.6L32 54l-4.6-17.4L10 32l17.4-4.6z"/></svg>
+<p style="font-size:20px;margin:10px 0 4px" id="t">Finishing sign-in…</p><p class="m" id="m">Returning to OpenLand.</p><a class="b" id="back" href="/">Return to OpenLand</a></div>
+<script>
+// OAuth redirect bounce (https, accepted by every provider). Android app: forwards to openland://oauth?… ; web/iPhone PWA: hands the result to the open tab.
+const sp = new URLSearchParams(location.search + (location.hash ? '&' + location.hash.slice(1) : ''))
+const web = sp.get('web') === '1'; sp.delete('web')
+const qs = sp.toString(); const d = Object.fromEntries(sp)
+if (d.error) { document.getElementById('t').textContent = 'Sign-in was not completed'; document.getElementById('m').textContent = d.error_description || d.error }
+const android = /Android/i.test(navigator.userAgent)
+if (android && !web) {
+  const fb = encodeURIComponent(location.origin + location.pathname + '?' + qs + '&web=1')
+  const intent = 'intent://oauth?' + qs + '#Intent;scheme=openland;package=com.openland.agent;S.browser_fallback_url=' + fb + ';end'
+  const a = document.getElementById('back'); a.href = 'openland://oauth?' + qs
+  location.replace(intent)
+  setTimeout(() => { document.getElementById('m').textContent = 'If OpenLand did not open, tap the button.' }, 1500)
+} else {
+  try { localStorage.setItem('ol-oauth-result', JSON.stringify({ ...d, href: location.href, t: Date.now() })) } catch (e) {}
+  try { new BroadcastChannel('ol-oauth').postMessage({ ...d, href: location.href }) } catch (e) {}
+  try { if (window.opener) { window.opener.postMessage({ type: 'ol-oauth', ...d, href: location.href }, location.origin); setTimeout(() => window.close(), 400) } } catch (e) {}
+  if (!d.error) { document.getElementById('t').textContent = 'Signed in'; document.getElementById('m').textContent = 'You can switch back to OpenLand now.' }
+  document.getElementById('back').href = '/?oauth=done'
+}
+</script></body></html>

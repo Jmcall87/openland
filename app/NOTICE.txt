@@ -1,0 +1,11 @@
+OpenLand bundles third-party software:
+- QEMU (GPL-2.0) https://www.qemu.org — source: https://gitlab.com/qemu-project/qemu
+- PRoot (GPL-2.0) https://github.com/termux/proot
+- GNU tar (GPL-3.0) https://www.gnu.org/software/tar/
+- XZ Utils / liblzma (0BSD / public domain) https://tukaani.org/xz/
+- EDK2 firmware (BSD-2-Clause-Patent) https://github.com/tianocore/edk2
+- noVNC (MPL-2.0) https://github.com/novnc/noVNC
+- Termux packages build recipes (Apache-2.0) https://github.com/termux/termux-packages
+Downloaded at first launch (not bundled): LineageOS 23.2 image by jqssun (Apache-2.0/GPL components),
+Debian trixie rootfs from termux/proot-distro (various free licenses).
+Corresponding source for GPL binaries is available from the upstream URLs above (Termux builds).
