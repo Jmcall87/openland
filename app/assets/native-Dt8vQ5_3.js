@@ -1,0 +1,1 @@
+export{n as hasNativeHttp,r as nativeHttp}from"./native-B4G0Mwiv.js";

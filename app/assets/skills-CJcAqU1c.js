@@ -1,1 +1,0 @@
-export{t as parseSkillMd}from"./skills-Dgq-0Ba8.js";
